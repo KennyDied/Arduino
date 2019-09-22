@@ -1,33 +1,25 @@
-//Задачка на 35 баллов.
-//Горит зелёный, а ты берёшь, нажимаешь кнопку и начинают гореть жёлтый, а потом красный (c)Андрей Бронников.
+//Задачка на 45 баллов.
 
 void setup() {
+  Serial.begin(9600);
+  pinMode(5, OUTPUT); // Красный светодиод
+  pinMode(6, OUTPUT); // Желтый светодиод
+  pinMode(7, OUTPUT); // Зелетый светодиод
 
-Serial.begin(9600);
-pinMode(5, OUTPUT); // Красный светодиод
-pinMode(6, OUTPUT); // Желтый светодиод
-pinMode(7, OUTPUT); // Зелетый светодиод
-
-pinMode(3,INPUT_PULLUP); // Кнопка 
+  pinMode(A7, INPUT); // Переменный резистор 
 
 }
 
 void loop() {
- 
-  boolean button =  !digitalRead(3);
-
-if(button == 1){
-  digitalWrite (7, LOW);
-  digitalWrite (6, HIGH);
-  delay (2000);
-  digitalWrite (6, LOW);
-  digitalWrite (5, HIGH);
-  delay (5000);
+  int speed = analogRead(A7); // Считываю значения с резистора
+  digitalWrite(5, HIGH);
+  delay(speed);
   digitalWrite(5, LOW);
-}
-
-else{
+  digitalWrite(6, HIGH);
+  delay(speed); 
+  digitalWrite(6, LOW);
   digitalWrite(7, HIGH);
-}
-
+  delay(speed);
+  digitalWrite(7, LOW);
+  
 }
