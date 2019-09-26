@@ -1,44 +1,47 @@
-//Задачка на 45 баллов. 
-//Итоговый вариант, пробую сделать кнопку через interrupt 
-//Третья попытка 
+//Надеюсь, что это конец
+
+#define RedLED 5
+#define YellowLED 6
+#define GreenLED 7
+#define Button 3
+#define Resistor A7
 
 void setup() {
   Serial.begin(9600);
-  pinMode(5, OUTPUT); // Красный светодиод
-  pinMode(6, OUTPUT); // Желтый светодиод
-  pinMode(7, OUTPUT); // Зелетый светодиод
+  pinMode(RedLED, OUTPUT);
+  pinMode(YellowLED, OUTPUT);
+  pinMode(GreenLED, OUTPUT);
 
-  pinMode(A7, INPUT); // Переменный резистор 
+  pinMode(A7, INPUT);
 
-  pinMode(3,INPUT_PULLUP); // Кнопка 
+  pinMode(Button,INPUT_PULLUP);
   
-  attachInterrupt(1, stopTrafficLight, FALLING); // Прерываю работу светофора по нажатию 
+  attachInterrupt(1, stopTrafficLight, FALLING);
 }
 
 void loop() {
   
-  int speed = analogRead(A7);   // Считываю значения с резистора, меняю скорость светофора
+  int speed = analogRead(Resistor);
   
-  digitalWrite(5, HIGH); 
+  digitalWrite(RedLED, HIGH); 
   delay(speed);
-  digitalWrite(5, LOW);
-  digitalWrite(6, HIGH);
+  digitalWrite(RedLED, LOW);
+  digitalWrite(YellowLED, HIGH);
   delay(speed); 
-  digitalWrite(6, LOW);
-  digitalWrite(7, HIGH);
+  digitalWrite(YellowLED, LOW);
+  digitalWrite(Resistor, HIGH);
   delay(speed);
-  digitalWrite(7, LOW);
+  digitalWrite(Resistor, LOW);
    
 }
 
-
-void stopTrafficLight() {        // Прервал работу фонаря нажатием кнопки  
+void stopTrafficLight() {
  
-  digitalWrite (6, HIGH);        // Загорается желтый на 5 секунд
+  digitalWrite (YellowLED, HIGH);
   delay (5000);
-  digitalWrite (6, LOW);         
-  digitalWrite (5, HIGH);        //  А теперь горит красный 10 секунд
+  digitalWrite (YellowLED, LOW);         
+  digitalWrite (RedLED, HIGH);
   delay (10000);
-  digitalWrite(5, LOW);
+  digitalWrite(RedLED, LOW);
     
 }
