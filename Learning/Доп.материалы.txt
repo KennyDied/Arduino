@@ -1,0 +1,18 @@
+√де еще почитать про ардуино?
+Х	ƒжереми Ѕлум. »зучаем Arduino
+Х	ѕетин ¬.ј. ѕроекты с использованием контроллера Arduino
+Х	”лли —оммер. ѕрограммирование микроконтроллерных плат Arduino/Freeduino
+ 
+»нтересные сайты:
+Х	http://arduino.ru/
+Х	https://www.arduino.cc/
+Х	https://amperka.ru/
+Х	https://iarduino.ru/
+Х	https://ru.aliexpress.com/
+Х	https://github.com/
+Х	https://habr.com/ru/
+ 
+≈сли лень читать - всегда есть видеоматериалы:
+Х	https://www.youtube.com/channel/UCgtAOyEQdAyjvm9ATCi_Aig
+Х	https://www.youtube.com/user/AmperkaRu
+
